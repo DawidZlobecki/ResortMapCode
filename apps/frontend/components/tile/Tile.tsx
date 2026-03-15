@@ -1,15 +1,27 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./Tile.module.css";
 import { getPathRendering, isConnectable } from "../../utils/pathLogic";
+
+interface Cabana {
+  id: string;
+  x: number;
+  y: number;
+  booked: boolean;
+  room: string | null;
+  guestName: string | null;
+}
 
 interface TileProps {
   type: string;
   x: number;
   y: number;
   map: string[][];
+  cabanas: Cabana[];
 }
 
-export default function Tile({ type, x, y, map }: TileProps) {
+export default function Tile({ type, x, y, map, cabanas }: TileProps) {
   const isPath = type === "#";
 
   const up = isConnectable(map[y - 1]?.[x]);
@@ -34,8 +46,16 @@ export default function Tile({ type, x, y, map }: TileProps) {
     icon = icons[type] ?? null;
   }
 
+  const cabana = cabanas.find((c) => c.x === x && c.y === y);
+  const isCabana = type === "W";
+  const isBooked = cabana?.booked;
+
   return (
-    <div className={styles.tile}>
+    <div
+      className={`${styles.tile} ${
+        isCabana ? (isBooked ? styles.cabanaBooked : styles.cabanaFree) : ""
+      } ${isCabana ? styles.cabana : ""}`}
+    >
       {icon && (
         <Image
           src={icon}

@@ -70,7 +70,7 @@ export default function Map() {
                 key={`${x}-${y}`}
                 onClick={() => handleTileClick(x, y, cell)}
               >
-                <Tile type={cell} x={x} y={y} map={map} />
+                <Tile type={cell} x={x} y={y} map={map} cabanas={cabanas} />
               </div>
             )),
           )}
