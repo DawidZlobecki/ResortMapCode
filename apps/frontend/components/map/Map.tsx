@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import styles from "./Map.module.css";
 import Tile from "../tile/Tile";
 import BookingModal from "../bookingModal/BookingModal";
-
+import CabanaInfoModal from "../cabanaInfoModal/CabanaInfoModal";
 interface Cabana {
   id: string;
   x: number;
@@ -19,6 +19,9 @@ export default function Map() {
   const [loading, setLoading] = useState(true);
   const [cabanas, setCabanas] = useState<Cabana[]>([]);
   const [selectedCabana, setSelectedCabana] = useState<string | null>(null);
+  const [selectedInfoCabana, setSelectedInfoCabana] = useState<Cabana | null>(
+    null,
+  );
   const [refresh, setRefresh] = useState(0);
 
   const width = map[0]?.length ?? 0;
@@ -49,7 +52,11 @@ export default function Map() {
   function handleTileClick(x: number, y: number, type: string) {
     if (type === "W") {
       const cabana = cabanas.find((c) => c.x === x && c.y === y);
-      if (cabana) {
+      if (!cabana) return;
+
+      if (cabana.booked) {
+        setSelectedInfoCabana(cabana); // ← DODANE
+      } else {
         setSelectedCabana(cabana.id);
       }
     }
@@ -82,6 +89,15 @@ export default function Map() {
           cabanaId={selectedCabana}
           onClose={() => setSelectedCabana(null)}
           onSuccess={() => setRefresh(refresh + 1)}
+        />
+      )}
+
+      {selectedInfoCabana && (
+        <CabanaInfoModal
+          cabanaId={selectedInfoCabana.id}
+          room={selectedInfoCabana.room}
+          guestName={selectedInfoCabana.guestName}
+          onClose={() => setSelectedInfoCabana(null)}
         />
       )}
     </div>
