@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import styles from "./Map.module.css";
-import Tile from "./tile/Tile";
+import Tile from "../tile/Tile";
 
 export default function Map() {
   const [map, setMap] = useState<string[][]>([]);
@@ -25,7 +25,7 @@ export default function Map() {
       >
         {map.map((row, y) =>
           row.map((cell, x) => (
-            <Tile key={`${x}-${y}`} type={cell} x={x} y={y} />
+            <Tile key={`${x}-${y}`} type={cell} x={x} y={y} map={map} />
           )),
         )}
       </div>
