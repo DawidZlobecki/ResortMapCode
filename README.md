@@ -10,6 +10,7 @@ It consists of:
 🚀 Quick Start
 
 1. Install dependencies
+
    Run from project root/apps/fronend:
    npm install
 
