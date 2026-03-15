@@ -8,7 +8,7 @@
   border-radius: 8px;
 }
 
-.grid {
+.mapGrid {
   display: grid;
-  gap: 4px;
+  grid-template-columns: repeat(var(--cols), 40px);
 }
