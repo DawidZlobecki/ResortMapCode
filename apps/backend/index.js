@@ -9,15 +9,14 @@ import cabanaRoutes from "./cabanas/cabanaRoutes.js";
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.use(express.json());
 
-function getArgValue(flag) {
-  const index = process.argv.indexOf(flag);
-  return index === -1 ? null : process.argv[index + 1];
-}
+const args = process.argv.slice(2);
 
-const mapPath = getArgValue("--map") || "map.ascii";
-const bookingsPath = getArgValue("--bookings") || "bookings.json";
+const mapPath = args[0] || "map.ascii";
+const bookingsPath = args[1] || "bookings.json";
+
+console.log("Backend loading map:", mapPath);
+console.log("Backend loading bookings:", bookingsPath);
 
 const mapData = loadMap(mapPath);
 const bookings = loadBookings(bookingsPath);
