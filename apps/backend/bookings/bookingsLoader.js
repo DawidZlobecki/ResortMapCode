@@ -1,7 +1,7 @@
-const fs = require("fs");
+import fs from "fs";
 
 function loadBookings(path) {
   return JSON.parse(fs.readFileSync(path, "utf8"));
 }
 
-module.exports = { loadBookings };
+export { loadBookings };

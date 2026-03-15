@@ -1,6 +1,6 @@
-const express = require("express");
+import express from "express";
 
-module.exports = (bookings) => {
+export default function validateRoutes(bookings) {
   const router = express.Router();
 
   router.get("/", (req, res) => {
@@ -22,4 +22,4 @@ module.exports = (bookings) => {
   });
 
   return router;
-};
+}

@@ -21,4 +21,4 @@ function createCabanaState(mapRows) {
   return cabanas;
 }
 
-module.exports = { createCabanaState };
+export { createCabanaState };
