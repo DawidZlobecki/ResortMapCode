@@ -1,7 +1,7 @@
-const express = require("express");
-const { createCabanaState } = require("./cabanaState");
+import express from "express";
+import { createCabanaState } from "./cabanaState.js";
 
-module.exports = (mapRows, bookings) => {
+export default function cabanaRoutes(mapRows, bookings) {
   const router = express.Router();
   const cabanas = createCabanaState(mapRows);
 
@@ -13,9 +13,13 @@ module.exports = (mapRows, bookings) => {
     const { cabanaId, room, guestName } = req.body;
     const cabana = cabanas[cabanaId];
 
-    if (!cabana) return res.status(404).json({ message: "Cabana not found" });
-    if (cabana.booked)
+    if (!cabana) {
+      return res.status(404).json({ message: "Cabana not found" });
+    }
+
+    if (cabana.booked) {
       return res.status(400).json({ message: "Cabana already booked" });
+    }
 
     const match = bookings.find(
       (b) =>
@@ -23,8 +27,9 @@ module.exports = (mapRows, bookings) => {
         b.guestName.toLowerCase() === guestName.toLowerCase(),
     );
 
-    if (!match)
+    if (!match) {
       return res.status(400).json({ message: "Invalid room or guest name" });
+    }
 
     cabana.booked = true;
     cabana.room = room;
@@ -34,4 +39,4 @@ module.exports = (mapRows, bookings) => {
   });
 
   return router;
-};
+}

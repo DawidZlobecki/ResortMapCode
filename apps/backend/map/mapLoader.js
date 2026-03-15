@@ -1,8 +1,6 @@
-const fs = require("fs");
+import fs from "fs";
 
-function loadMap(path) {
+export function loadMap(path) {
   const raw = fs.readFileSync(path, "utf8");
   return raw.split("\n").map((row) => row.split(""));
 }
-
-module.exports = { loadMap };

@@ -1,0 +1,26 @@
+/* Oryginalne */
+.tile {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cabana {
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.cabana:hover {
+  transform: scale(1.1);
+}
+
+/* NOWE — tylko kolor tła, nic więcej */
+.cabanaFree {
+  background-color: #4caf50 !important; /* zielona */
+}
+
+.cabanaBooked {
+  background-color: #e53935 !important; /* czerwona */
+}

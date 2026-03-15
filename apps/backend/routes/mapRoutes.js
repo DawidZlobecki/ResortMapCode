@@ -1,6 +1,6 @@
-const express = require("express");
+import express from "express";
 
-module.exports = (mapRows) => {
+export default function mapRoutes(mapRows) {
   const router = express.Router();
 
   router.get("/", (req, res) => {
@@ -8,4 +8,4 @@ module.exports = (mapRows) => {
   });
 
   return router;
-};
+}

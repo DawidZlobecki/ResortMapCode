@@ -1,11 +1,14 @@
-const express = require("express");
-const { loadMap } = require("./map/mapLoader");
-const { loadBookings } = require("./bookings/bookingsLoader");
-const mapRoutes = require("./routes/mapRoutes");
-const validateRoutes = require("./routes/validateRoutes");
-const cabanaRoutes = require("./cabanas/cabanaRoutes");
+import express from "express";
+import cors from "cors";
+import { loadMap } from "./map/mapLoader.js";
+import { loadBookings } from "./bookings/bookingsLoader.js";
+import mapRoutes from "./routes/mapRoutes.js";
+import validateRoutes from "./routes/validateRoutes.js";
+import cabanaRoutes from "./cabanas/cabanaRoutes.js";
 
 const app = express();
+app.use(express.json());
+app.use(cors());
 app.use(express.json());
 
 function getArgValue(flag) {

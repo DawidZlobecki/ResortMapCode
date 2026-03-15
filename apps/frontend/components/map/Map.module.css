@@ -1,0 +1,14 @@
+.mapWrapper {
+  background-image: url("/assets/parchmentBasic.png");
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  display: inline-block;
+  border: 4px solid #3a2f1b;
+  border-radius: 8px;
+}
+
+.mapGrid {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), 40px);
+}
