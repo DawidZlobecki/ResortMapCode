@@ -11,7 +11,7 @@ It consists of:
 
 1. Install dependencies
 
-   Run from project root/apps/fronend:
+   Run from project root/apps/frontend:
 
    npm install
 
@@ -27,6 +27,8 @@ This uses default files:
 
 - map.ascii
 - bookings.json
+
+If you want to use custom map or custom bookings files, place them directly inside the backend directory:
 
 3. Start with a custom map
 
