@@ -96,20 +96,33 @@ Responses:
 - Booked cabanas shown with a distinct visual style
 
 🧪 Automated Tests
-Backend tests cover:
 
-- Map loading
-- Booking validation
-- Booking conflicts
-- REST API responses
-  Frontend tests cover:
-- Map rendering
-- Cabana click interaction
-- Modal behavior
-- Booking flow
-- Error messages
-  Run all tests:
-  npm test
+### Backend
+
+Backend tests are located in `apps/backend/tests/` and use Node’s built-in `node --test` runner.
+
+To run backend tests:
+
+```bash
+cd apps/backend
+npm test
+```
+
+### Frontend
+
+Frontend tests are located in `apps/frontend/tests/` and run via Vitest.
+
+To run frontend tests:
+
+```bash
+cd apps/frontend
+npm test
+```
+
+The frontend test suite currently covers:
+
+- Path rendering logic (`utils/pathLogic.ts`)
+- Tile rendering + click behavior (`components/tile/Tile.tsx`)
 
 📸 Screenshot
 ![Resort Map Screenshot](./assets/screenshot.png)
