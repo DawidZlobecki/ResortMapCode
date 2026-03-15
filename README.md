@@ -12,12 +12,15 @@ It consists of:
 1. Install dependencies
 
    Run from project root/apps/fronend:
+
    npm install
 
    Run from project root/apps/backend:
+
    npm install
 
-2. Start the full application (backend + frontend)
+2. Start the full application (backend + frontend) from project root:
+
    npm run dev
 
 This uses default files:
@@ -26,12 +29,15 @@ This uses default files:
 - bookings.json
 
 3. Start with a custom map
+
    npm run dev customMap.ascii
 
 4. Start with custom map + custom bookings
+
    npm run dev customMap.ascii customBookings.json
 
 5. Start with custom bookings only
+
    npm run dev "" customBookings.json
 
 🗺️ Map Format
@@ -48,7 +54,9 @@ Each character represents a tile:
 
 Example:
 ....pppp....
+
 ..W..##..W..
+
 ....##......
 
 The backend converts this into a grid and exposes it via the API.
@@ -101,7 +109,6 @@ Backend tests cover:
   npm test
 
 📸 Screenshot
-Include a screenshot of your running app:
 ![Resort Map Screenshot](./assets/screenshot.png)
 
 🧠 Design Decisions & Trade-offs
