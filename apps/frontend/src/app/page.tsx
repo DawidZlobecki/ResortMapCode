@@ -1,3 +1,5 @@
+import Map from "../../components/map/Map";
+
 export default function HomePage() {
   return (
     <main
@@ -7,7 +9,7 @@ export default function HomePage() {
         padding: "40px",
       }}
     >
-      <h1>Resort Map</h1>
+      <Map />
     </main>
   );
 }
