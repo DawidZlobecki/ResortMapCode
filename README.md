@@ -37,12 +37,14 @@ This uses default files:
 🗺️ Map Format
 The resort map is provided as an ASCII file.
 Each character represents a tile:
-| | |
-| W | |
-| p | |
-| # | |
-| c | |
-| . | |
+
+| Symbol | Meaning     | Description                                                        |
+| ------ | ----------- | ------------------------------------------------------------------ |
+| `W`    | Cabana      | Bookable cabana. Clickable. Shows availability and allows booking. |
+| `p`    | Pool        | Pool area. Decorative tile, not interactive.                       |
+| `#`    | Path        | Walkway/path tile. Used for navigation layout.                     |
+| `c`    | Chalet      | Guest chalet/building. Decorative tile, not interactive.           |
+| `.`    | Empty space | Grass/ground/empty area. Used for spacing and layout.              |
 
 Example:
 ....pppp....
