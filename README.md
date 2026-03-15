@@ -70,7 +70,7 @@ Returns the resort map and cabana availability.
 POST /api/validate
 Validates room number + guest name against the bookings file.
 Request:
-{ "room": "204", "name": "John Doe" }
+{ "room": "101", "name": "Alice Smith" }
 
 POST /api/cabanas/book
 Books a cabana if available and guest is valid.
