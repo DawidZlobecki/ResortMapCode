@@ -55,6 +55,7 @@ Each character represents a tile:
 | `.`    | Empty space | Grass/ground/empty area. Used for spacing and layout.              |
 
 Example:
+
 ....pppp....
 
 ..W..##..W..
@@ -159,5 +160,5 @@ This project delivers a complete, interactive cabana booking experience with:
 - real-time booking updates,
 - simple startup command,
 
-  You're ready to run, test, and review the entire solution with a single command:
+  You're ready to run, and review the entire solution with a single command:
   npm run dev
